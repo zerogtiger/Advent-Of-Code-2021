@@ -11,7 +11,7 @@ public class D6Q2Lanternfish {
 		for (int i = 0; i < temp.length; i++) {
 			fish[Integer.parseInt(temp[i])]++;
 		}
-		for (int i = 0; i < 4096; i++) {
+		for (int i = 0; i < 256; i++) {
 			long baby = fish[0];
 			for (int j = 0; j < 8; j++) {
 				fish[j] = fish[j+1];
