@@ -40,19 +40,19 @@ public class D10Q2SyntaxScoring {
         while (!temp.equals("-1")) {
             String[] brk = temp.split("");
             Stack<String> recbrk = new Stack<>();
-            boolean isCurrupt = false;
+            boolean isCorrupt = false;
             innerLoop:
             for (int i = 0; i < brk.length; i++) {
                 if (brk[i].equals("(") || brk[i].equals("{") || brk[i].equals("[") || brk[i].equals("<")) recbrk.push(brk[i]);
                 if (brk[i].equals(")") || brk[i].equals("}") || brk[i].equals("]") || brk[i].equals(">")) {
                     temp = recbrk.pop();
                     if (!isClosing(temp, brk[i])) {
-                        isCurrupt = true;
+                        isCorrupt = true;
                         break innerLoop;
                     }
                 }
             }
-            if (!isCurrupt) {
+            if (!isCorrupt) {
                 while (!recbrk.isEmpty()) {
                     score = (score * 5 + scoreOf(recbrk.pop()));
                 }
